@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/drawable/button_shape2.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/drawable/categoery.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/drawable/gradient.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/drawable/members.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/activity_bni_chapters2.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/activity_bnilucknow_gallery2.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/activity_categoery2.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/activity_chapter_member2.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/activity_event2.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/activity_gallery_detail2.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/activity_main.xml" value="0.22395833333333334" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/activity_menber_pin2.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/activity_new_bni_sactivity2.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/bni_lucknoe_layout.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/card_layout.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/chapter_layout.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/event_layout.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/fragment_b_n_i__lucknow_.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/gallery_layout.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/member_pin.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/member_pin_layout.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/news_layout_1.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/news_layout_2.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/regional_team_layout.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/Sarita Verma/AndroidStudioProjects/BNILucknow/app/src/main/res/layout/slider_layout.xml" value="0.23802083333333332" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
