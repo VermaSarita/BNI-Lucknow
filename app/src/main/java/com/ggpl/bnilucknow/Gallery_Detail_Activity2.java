@@ -22,5 +22,9 @@ public class Gallery_Detail_Activity2 extends AppCompatActivity {
 
         binding.fullimage.setImageResource(imageId);
 
+
+
+
+
     }
 }

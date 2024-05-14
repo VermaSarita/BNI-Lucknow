@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".Gallery_Detail_Activity2">
 
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/header_title"
         android:layout_width="match_parent"
@@ -17,8 +18,8 @@
         tools:ignore="MissingConstraints">
         <ImageView
             android:id="@+id/backArrow"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginTop="5dp"
             android:backgroundTint="#F6F4F4"
             android:src="@drawable/ic_baseline_arrow_back_ios_24" />

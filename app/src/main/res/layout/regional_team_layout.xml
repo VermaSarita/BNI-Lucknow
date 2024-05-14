@@ -3,15 +3,18 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    app:cardCornerRadius="3dp"
-    android:elevation="5dp"
-    android:layout_margin="5dp"
+    app:cardCornerRadius="0dp"
+    android:elevation="0dp"
+    android:layout_margin="0dp"
     android:layout_height="80dp">
+
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:background="#FFF7F7"
         android:weightSum="2"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:layout_height="match_parent">
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
@@ -26,23 +29,50 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:backgroundTint="@color/white"
-                android:src="@drawable/bni" />
+                android:src="@drawable/profile" />
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_gravity="center"
             android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/topText"
-                android:paddingStart="10dp"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:text="@string/app_name"
-                android:paddingEnd="0dp"
-                android:textStyle="bold"
-                android:textSize="14sp"
-                android:textColor="#DF0606"
-                android:layout_height="wrap_content"/>
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/initialname"
+                    android:paddingStart="10dp"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:text=""
+                    android:paddingEnd="0dp"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#DF0606"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/topText"
+                    android:paddingStart="5dp"
+                    android:layout_width="wrap_content"
+                    android:text="@string/app_name"
+                    android:paddingEnd="0dp"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#DF0606"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/lastname"
+                    android:paddingStart="2dp"
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:paddingEnd="0dp"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#DF0606"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
             <TextView
                 android:id="@+id/bottomText"
                 android:paddingStart="10dp"
@@ -53,8 +83,9 @@
                 android:paddingTop="0dp"
                 android:drawablePadding="10dp"
                 android:textSize="12sp"
-                android:textColor="#B8B7B7"
+                android:textColor="#0E0E0E"
                 android:layout_height="wrap_content"/>
+
             <TextView
                 android:id="@+id/bottomText2"
                 android:paddingStart="10dp"
@@ -63,17 +94,29 @@
                 android:paddingEnd="0dp"
                 android:paddingTop="0dp"
                 android:textSize="12sp"
-                android:textColor="#B8B7B7"
+                android:textColor="#0C0C0C"
                 android:layout_height="wrap_content"/>
+
             <View
                 android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:backgroundTint="#CDC7C7"
                 android:layout_marginTop="40dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginEnd="0dp"
                 android:background="#CAC4C4"
                 android:color="#C3BFBF"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#F3CACD"
+        android:layout_marginTop="79dp"
+        android:layout_marginStart="65dp"
+        android:paddingStart="50dp"
+        android:layout_marginEnd="5dp"
+        android:layout_height="1dp"/>
+
 </androidx.cardview.widget.CardView>

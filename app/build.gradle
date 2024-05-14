@@ -1,16 +1,20 @@
 plugins {
+
     id 'com.android.application'
+
 }
 
 android {
-    compileSdk 32
+
+    namespace = "com.ggpl.bnilucknow"
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.ggpl.bnilucknow"
         minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        targetSdk 34
+        versionCode 4
+        versionName "1.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
@@ -34,6 +38,7 @@ android {
 
 dependencies {
 
+
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -44,5 +49,15 @@ dependencies {
     implementation 'com.github.smarteist:autoimageslider:1.4.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation "com.ms-square:expandableTextView:0.1.4"
+
+    //retrofit dependencies..
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
 }

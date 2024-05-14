@@ -26,6 +26,7 @@ public class BNILucknowAdapter extends RecyclerView.Adapter<BNILucknowAdapter.Vi
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bni_lucknoe_layout, parent, false);
         return new ViewHolder(view);
     }
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.titleImage.setImageResource(bniLucknowModels.get(position).getImgid());
@@ -39,7 +40,6 @@ public class BNILucknowAdapter extends RecyclerView.Adapter<BNILucknowAdapter.Vi
 
                 // Ensure that you're using the correct context from the view
                 Context context = view.getContext();
-
 
                 if (clickedPosition == 0) {
                     Intent intent = new Intent(context, BNI_Chapters_Activity2.class);

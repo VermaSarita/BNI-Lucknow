@@ -2,13 +2,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ggpl.bnilucknow">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/bnilucnkowlogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/bnilucnkowlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.BNILucknow">
+        <activity
+            android:name=".EmeraldActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MaestrosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MavericksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProsperityChapterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ApexChapertActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PrimeChapterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
         <activity
             android:name=".Chapter_Member_Activity2"
             android:exported="false" />
@@ -34,11 +63,11 @@
             android:name=".CategoeryActivity2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
-
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

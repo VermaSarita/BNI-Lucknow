@@ -38,10 +38,35 @@
             android:layout_height="wrap_content"
             tools:ignore="HardcodedText"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="55dp"
+        android:visibility="gone"
+        android:id="@+id/progress"
+        tools:ignore="MissingConstraints" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_marginTop="70dp"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/errorMessage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Error fetching data. Please try again later."
+        android:textSize="16sp"
+        android:layout_marginTop="170dp"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

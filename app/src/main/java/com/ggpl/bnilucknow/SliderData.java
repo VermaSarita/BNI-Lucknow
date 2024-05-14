@@ -15,4 +15,5 @@ public class SliderData {
     public void setImageResId(int imageResId) {
         this.imageResId = imageResId;
     }
+
 }

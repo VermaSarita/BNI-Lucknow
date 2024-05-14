@@ -15,12 +15,12 @@
         tools:ignore="MissingConstraints">
         <TextView
             android:layout_width="match_parent"
-            android:text="Bni Lucknow"
+            android:text="Bni Lucknow North"
             android:textStyle="bold"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="10dp"
             android:paddingStart="20dp"
             android:textColor="#FAF4F4"
-            android:textSize="28dp"
+            android:textSize="20dp"
             android:layout_height="match_parent"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
     <FrameLayout

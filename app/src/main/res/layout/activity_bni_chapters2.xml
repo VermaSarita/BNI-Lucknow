@@ -23,7 +23,7 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginTop="5dp"
-            android:backgroundTint="#F6F4F4"/>
+          android:background="@drawable/whitebackarrow"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,6 +53,7 @@
                 android:layout_height="161dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/chapter2" />
+
         </androidx.cardview.widget.CardView>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -61,6 +62,16 @@
         android:layout_height="match_parent"
         android:layout_marginTop="240dp"
         android:orientation="vertical">
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="55dp"
+            android:visibility="gone"
+            android:id="@+id/progress"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleViewStagged"

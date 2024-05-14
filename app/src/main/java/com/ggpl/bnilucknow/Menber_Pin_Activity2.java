@@ -1,7 +1,10 @@
 package com.ggpl.bnilucknow;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.ggpl.bnilucknow.databinding.ActivityMenberPin2Binding;
 
@@ -17,6 +20,15 @@ public class Menber_Pin_Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
         initview();
+
+
+
+        binding.backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Menber_Pin_Activity2.this, MainActivity.class));
+            }
+        });
     }
 
     private void initview() {

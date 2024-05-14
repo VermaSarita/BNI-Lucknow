@@ -7,13 +7,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.ggpl.bnilucknow.Model.Chapter.categoeryModel;
+import com.squareup.picasso.Picasso;
 import java.util.List;
 
+
 public class CategoeryAdapter extends RecyclerView.Adapter<CategoeryAdapter.ViewHolder> {
-    private List<CategoeryModel> categoeryModels;
+    private List<categoeryModel> categoeryModels;
     private Context context;
 
-    public CategoeryAdapter(List<CategoeryModel> categoeryModels, Context context) {
+    public CategoeryAdapter(List<categoeryModel> categoeryModels, Context context) {
         this.categoeryModels = categoeryModels;
         this.context = context;
     }
@@ -27,8 +30,35 @@ public class CategoeryAdapter extends RecyclerView.Adapter<CategoeryAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.idIVcourse.setImageResource(categoeryModels.get(position).getImgid());
-        holder.idTVCourse.setText(categoeryModels.get(position).getTitle());
+
+        if (position==0) {
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.event).error(R.drawable.event).into(holder.image);
+        }else if(position==1){
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.branding).error(R.drawable.branding).into(holder.image);
+        }else if(position==2){
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.training).error(R.drawable.training).into(holder.image);
+        }else if(position==3){
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.jewelry).error(R.drawable.jewelry).into(holder.image);
+        }else if(position==4){
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.travel).error(R.drawable.travel).into(holder.image);
+        }else if(position==5){
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.food).error(R.drawable.food).into(holder.image);
+        }else if(position==6){
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.more).error(R.drawable.more).into(holder.image);
+        }else if(position==7){
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.accounting).error(R.drawable.accounting).into(holder.image);
+        }else if(position==8){
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.store).error(R.drawable.store).into(holder.image);
+        }else if(position==9){
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.realstate).error(R.drawable.realstate).into(holder.image);
+        }else if(position==10){
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.retail).error(R.drawable.retail).into(holder.image);
+        }else if(position==11){
+            Picasso.get().load(categoeryModels.get(position).getId()).placeholder(R.drawable.realstate).error(R.drawable.realstate).into(holder.image);
+        }
+
+      //  holder.idTVCourse.setText(categoeryModels.get(position).getId());
+        holder.text.setText(categoeryModels.get(position).getCategory());
     }
 
     @Override
@@ -37,12 +67,12 @@ public class CategoeryAdapter extends RecyclerView.Adapter<CategoeryAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView idTVCourse,TEXT;
-        ImageView idIVcourse;
+        TextView text,TEXT;
+        ImageView image;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            idIVcourse = itemView.findViewById(R.id.idIVcourse);
-            idTVCourse = itemView.findViewById(R.id.idTVCourse);
+            image = itemView.findViewById(R.id.image);
+            text = itemView.findViewById(R.id.text);
 
         }
     }

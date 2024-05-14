@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="#ce202d"
+        android:weightSum="4"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/backArrow"
+            android:layout_width="25dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#F6F4F4"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:layout_height="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Member Profile"
+            android:paddingStart="20dp"
+            android:textColor="@color/white"
+            android:layout_marginEnd="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_gravity="center"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="0dp"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="76dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_height="76dp"
+            android:src="@drawable/man2"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:orientation="horizontal"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:layout_marginTop="10dp"
+      android:layout_height="wrap_content">
+      <TextView
+          android:id="@+id/name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="#101010"
+          android:textSize="16sp"
+          android:gravity="center"
+          android:layout_marginStart="7dp"
+          android:layout_gravity="center"
+          android:textStyle="bold"
+          android:text="Full Name"
+          tools:ignore="HardcodedText" />
+
+      <TextView
+          android:id="@+id/lname"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="#101010"
+          android:textSize="16sp"
+          android:gravity="center"
+          android:layout_marginStart="1dp"
+          android:layout_gravity="center"
+          android:textStyle="bold"
+          android:text="Full Name"
+          tools:ignore="HardcodedText" />
+  </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/businessCategoery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:textColor="#101010"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="Business Category"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/fb"
+                tools:ignore="ContentDescription" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/insta"
+                android:layout_margin="12dp"
+                tools:ignore="ContentDescription" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="12dp"
+                android:src="@drawable/twitter1"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:background="#F3A4AA"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_height="1dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:src="@drawable/logo"
+                android:layout_height="40dp"/>
+
+            <TextView
+                android:id="@+id/comapneName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:textColor="#101010"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:textStyle="normal"
+                android:text="Company Address"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/mobileNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:textColor="#101010"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:text="Mobile Number"
+                tools:ignore="HardcodedText" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:textColor="#101010"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:text="Email Address"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#FAB2B7"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_height="1dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/MyAsk"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:background="@drawable/give_ask_shape"
+                android:textColor="#101010"
+                android:padding="13dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:layout_marginEnd="10dp"
+                android:textStyle="normal"
+                android:hint="My Ask"
+                tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/Mygive"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:padding="13dp"
+                android:textColor="#101010"
+                android:background="@drawable/give_ask_shape"
+                android:paddingStart="10dp"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:textStyle="normal"
+                android:hint="My Give"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:textColor="#101010"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:text="My Business"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/business"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:textColor="#101010"
+            android:textSize="14sp"
+           android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textStyle="normal"
+            android:text="Software is a collection of programs and data that tell a computer how to perform specific tasks. Software often includes associated software documentation. This is in contrast to hardware, from which the system is built and which actually performs the work. Wikipedia"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</LinearLayout>

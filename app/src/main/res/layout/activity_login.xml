@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:ignore="UselessParent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/bnilucnkowlogo"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="28dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="0dp"
+                    android:text="Welcome"
+                    android:textColor="#121111"
+                    android:textSize="28sp"
+                    tools:ignore="HardcodedText,RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="0dp"
+                    android:text="Please login with your information"
+                    android:textColor="#232222"
+                    android:textSize="12sp"
+                    android:alpha="0.7"
+                    tools:ignore="HardcodedText,RtlSymmetry" />
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#101010"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Email Adress"
+                    tools:ignore="HardcodedText" />
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="email"
+                    android:textSize="12sp"
+                    android:minHeight="48dp"
+                    android:drawableEnd="@drawable/baseline_done_24"
+                    android:inputType="textFilter|textMultiLine"
+                    tools:ignore="Autofill,HardcodedText" />
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#101010"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Password"
+                    tools:ignore="HardcodedText" />
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:hint="password"
+                    android:textSize="12sp"
+                    android:minHeight="48dp"
+                    android:drawableEnd="@drawable/baseline_remove_red_eye_24"
+                    android:layout_height="wrap_content"
+                    tools:ignore="Autofill,HardcodedText"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:text="Remember me"
+                        android:textSize="14sp"
+                        android:layout_height="wrap_content"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.7"
+                        android:textSize="14sp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:layout_alignParentEnd="true"
+                        android:text="I forget my password"
+                        tools:ignore="HardcodedText" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"/>
+                <ProgressBar
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginRight="55dp"
+                    android:visibility="gone"
+                    android:id="@+id/progress"/>
+     <com.google.android.material.button.MaterialButton
+         android:layout_width="match_parent"
+         app:cornerRadius="32dp"
+         android:text="Login"
+         android:id="@+id/loginbtn"
+         android:layout_height="60dp"
+         tools:ignore="HardcodedText" />
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"/>
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textStyle="normal"
+                    android:text="or login with"
+                    tools:ignore="HardcodedText" />
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/fb"
+                        tools:ignore="ContentDescription" />
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/insta"
+                        android:layout_margin="12dp"
+                        tools:ignore="ContentDescription" />
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/twitter1"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+
+</RelativeLayout>

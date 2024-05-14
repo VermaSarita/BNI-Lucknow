@@ -1,7 +1,11 @@
 package com.ggpl.bnilucknow;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import com.ggpl.bnilucknow.databinding.ActivityBnilucknowGallery2Binding;
 import java.util.ArrayList;
 
@@ -20,6 +24,15 @@ public class BNILucknowGallery_Activity2 extends AppCompatActivity {
     }
 
     private void OnClickListener() {
+
+
+        binding.backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BNILucknowGallery_Activity2.this, MainActivity.class));
+            }
+        });
+
 
     }
 

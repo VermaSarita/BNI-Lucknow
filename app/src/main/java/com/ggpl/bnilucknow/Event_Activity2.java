@@ -57,8 +57,7 @@ public class Event_Activity2 extends AppCompatActivity {
         binding.backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Event_Activity2.this, MainActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(Event_Activity2.this, MainActivity.class));
             }
         });
     }
