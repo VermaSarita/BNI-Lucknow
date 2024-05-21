@@ -1,5 +1,4 @@
 package com.ggpl.bnilucknow;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import java.util.List;
-
 
 
 public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ViewHolder> {
@@ -31,79 +29,63 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-       // holder.image.setImageResource(allChapterModels.get(position).getImg());
-       // Picasso.get().load(allChapterModels.get(position).getImg()).into(holder.image);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        AllChapterModel chapterModel = allChapterModels.get(position);
 
-        if (position==0) {
-            Picasso.get()
-                    .load(allChapterModels.get(position).getImg()).placeholder(R.drawable.masterchapter).error(R.drawable.masterchapter).into(holder.image);
-        }else if (position==1){
-                Picasso.get()
-                        .load(allChapterModels.get(position).getImg()).placeholder(R.drawable.primechapter).error(R.drawable.primechapter).into(holder.image);
-        }else if (position==2){
-            Picasso.get()
-                    .load(allChapterModels.get(position).getImg()).placeholder(R.drawable.apexchapter).error(R.drawable.apexchapter).into(holder.image);
-        }else if (position==3){
-            Picasso.get()
-                    .load(allChapterModels.get(position).getImg()).placeholder(R.drawable.emberaldchapter).error(R.drawable.emberaldchapter).into(holder.image);
-        }else if (position==4){
-            Picasso.get()
-                    .load(allChapterModels.get(position).getImg()).placeholder(R.drawable.prosperitychapter).error(R.drawable.prosperitychapter).into(holder.image);
-        }else if (position==5){
-            Picasso.get()
-                    .load(allChapterModels.get(position).getImg()).placeholder(R.drawable.mavericckschapter).error(R.drawable.mavericckschapter).into(holder.image);
-        }else if (position==6){
-            Picasso.get()
-                    .load(allChapterModels.get(position).getImg()).placeholder(R.drawable.maestros).error(R.drawable.maestros).into(holder.image);
-        }
+        String imgUrl = chapterModel.getImgpath();
 
-        holder.textview.setText(allChapterModels.get(position).getChapter());
+        Picasso.get().load(imgUrl)
+                .placeholder(R.drawable.bnilogo) // Placeholder image while loading
+                .error(R.drawable.bnilogo) // Image on error
+                .into(holder.image); // Target ImageView
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (position == 0) {
-                    Intent intent = new Intent(context, Chapter_Member_Activity2.class);
-                    context.startActivity(intent);
-                } else if (position == 1) {
-                    Intent intent = new Intent(context, PrimeChapterActivity.class);
-                    context.startActivity(intent);
-                }else if (position == 2) {
-                    Intent intent = new Intent(context, ApexChapertActivity.class);
-                    context.startActivity(intent);
-                }else if (position==3){
-                   Intent intent = new Intent(context, EmeraldActivity.class);
-                   context.startActivity(intent);
-                }else if (position==4){
-                    Intent intent = new Intent(context, ProsperityChapterActivity.class);
-                    context.startActivity(intent);
-                }else if (position==5){
-                    Intent intent = new Intent(context, MavericksActivity.class);
-                    context.startActivity(intent);
-                }
-                else if (position==6){
-                    Intent intent = new Intent(context, MaestrosActivity.class);
-                    context.startActivity(intent);
-                }
+
+        holder.textview.setText(chapterModel.getChapter());
+
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent;
+            switch (position) {
+                case 0:
+                    intent = new Intent(context, Chapter_Member_Activity2.class);
+                    break;
+                case 1:
+                    intent = new Intent(context, PrimeChapterActivity.class);
+                    break;
+                case 2:
+                    intent = new Intent(context, ApexChapertActivity.class);
+                    break;
+                case 3:
+                    intent = new Intent(context, EmeraldActivity.class);
+                    break;
+                case 4:
+                    intent = new Intent(context, ProsperityChapterActivity.class);
+                    break;
+                case 5:
+                    intent = new Intent(context, MavericksActivity.class);
+                    break;
+                case 6:
+                    intent = new Intent(context, MaestrosActivity.class);
+                    break;
+                default:
+                    return;
             }
+            context.startActivity(intent);
         });
     }
 
     @Override
     public int getItemCount() {
         return allChapterModels.size();
-
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
-        TextView textview;
+        public TextView textview;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
             textview = itemView.findViewById(R.id.textview);
-
         }
     }
 }

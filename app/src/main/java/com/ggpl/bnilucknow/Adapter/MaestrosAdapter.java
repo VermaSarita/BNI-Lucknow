@@ -15,14 +15,12 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 
+
 public class MaestrosAdapter extends RecyclerView.Adapter<MaestrosAdapter.ViewHolder> {
     private List<MaestrosModel> maestrosModels;
     private Context context;
 
-    private int[] staticImages = {
 
-            R.drawable.profile,//1
-    };
 
     public MaestrosAdapter(List<MaestrosModel> maestrosModels, Context context) {
         this.maestrosModels = maestrosModels;
@@ -38,28 +36,21 @@ public class MaestrosAdapter extends RecyclerView.Adapter<MaestrosAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MaestrosAdapter.ViewHolder holder, int position) {
+        MaestrosModel member = maestrosModels.get(position);
+
         holder.topText.setText(maestrosModels.get(position).getfName());
         holder.bottomText.setText(maestrosModels.get(position).getCategory());
         holder.bottomText2.setText(maestrosModels.get(position).getcName());
         holder.initialname.setText(maestrosModels.get(position).getInitial());
         holder.lastname.setText(maestrosModels.get(position).getlName());
 
-        int imageIndex = position % staticImages.length;
+        String imageUrl = member.getMphtopath();
 
         Picasso.get()
-                .load(staticImages[imageIndex])
+                .load(imageUrl)
+                .placeholder(R.drawable.bnilogo)
+                .error(R.drawable.ic_baseline_newspaper_24)
                 .into(holder.image);
-
-
-
-        // Load image using Picasso
-        String imagePath = maestrosModels.get(position).getmPhoto();
-        if (imagePath != null && !imagePath.isEmpty()) {
-            Picasso.get().load(imagePath).into(holder.image);
-        } else {
-            // Set a default drawable photo (placeholder image)
-            holder.image.setImageResource(R.drawable.profile);
-        }
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -70,29 +61,28 @@ public class MaestrosAdapter extends RecyclerView.Adapter<MaestrosAdapter.ViewHo
                 Context context = view.getContext();
 
                 // Retrieve the data of the clicked item
-                String title = maestrosModels.get(clickedPosition).getfName();
-                String text = maestrosModels.get(clickedPosition).getlName();
-                String categoery = maestrosModels.get(clickedPosition).getCategory();
-                String myAsk = maestrosModels.get(clickedPosition).getAsk();
-                String myGive = maestrosModels.get(clickedPosition).getGive();
-                String mobNo = maestrosModels.get(clickedPosition).getNumber();
-                String companyname = maestrosModels.get(clickedPosition).getcName();
-                String business = maestrosModels.get(clickedPosition).getBusiness();
-                int imageResourceId = staticImages[clickedPosition % staticImages.length];
-
+                String title = member.getfName();
+                String text = member.getlName();
+                String category = member.getCategory();
+                String myAsk = member.getAsk();
+                String myGive = member.getGive();
+                String mobNo = member.getNumber();
+                String companyname = member.getcName();
+                String business = member.getBusiness();
+                String imageResourceUrl = member.getMphtopath();
 
                 Intent intent = new Intent(context, ProfileActivity.class);
 
                 intent.putExtra("title", title);
                 intent.putExtra("text", text);
-                intent.putExtra("categoery", categoery);
+                intent.putExtra("category", category);
                 intent.putExtra("myAsk", myAsk);
                 intent.putExtra("myGive", myGive);
                 intent.putExtra("mobNo", mobNo);
                 intent.putExtra("companyname", companyname);
                 intent.putExtra("business", business);
-                intent.putExtra("imageResourceId", imageResourceId);
-                // intent.putExtra("imageResourceId", imageResourceId);
+                intent.putExtra("imageResourceUrl", imageResourceUrl);
+
                 context.startActivity(intent);
             }
         });

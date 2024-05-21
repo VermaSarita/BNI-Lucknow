@@ -66,12 +66,12 @@ public class chapterAdapter extends RecyclerView.Adapter<chapterAdapter.ViewHold
             // Bind static image
             image.setImageResource(staticImageResId);
             // Optionally, you can hide or modify other views specific to dynamic chapter data
-            textview.setVisibility(View.GONE);
+            textview.setVisibility(View.VISIBLE);
         }
 
         public void bindChapterData(AllChapterModel chapterModel) {
             // Bind dynamic chapter data
-            Picasso.get().load(chapterModel.getImg()).into(image);
+            Picasso.get().load(chapterModel.getImgpath()).into(image);
             textview.setText(chapterModel.getChapter());
             // Optionally, you can modify views specific to static images
             textview.setVisibility(View.VISIBLE);

@@ -1,6 +1,6 @@
 package com.ggpl.bnilucknow.Model.MasterModel;
-
 import com.google.gson.annotations.SerializedName;
+
 
 public class MaestrosModel {
     public int id;
@@ -37,13 +37,13 @@ public class MaestrosModel {
     public String linkedin;
     @SerializedName("Website")
     public String website;
-    @SerializedName("MemberPin")
-    public String memberPin;
-    public String image;
     @SerializedName("CName")
     public String cName;
     @SerializedName("Clogo")
     public String clogo;
+    public String logopath;
+    @SerializedName("Mphtopath")
+    public String mphtopath;
     @SerializedName("MPhoto")
     public String mPhoto;
     @SerializedName("Ask")
@@ -53,7 +53,7 @@ public class MaestrosModel {
     @SerializedName("Business")
     public String business;
 
-    public MaestrosModel(int id, int cID, String category, String initial, String fName, String lName, String bGroup, String dOB, String number, String email, String city, String address, String facebook, String insta, String youtube, String twitter, String linkedin, String website, String memberPin, String image, String cName, String clogo, String mPhoto, String ask, String give, String business) {
+    public MaestrosModel(int id, int cID, String category, String initial, String fName, String lName, String bGroup, String dOB, String number, String email, String city, String address, String facebook, String insta, String youtube, String twitter, String linkedin, String website, String cName, String clogo, String logopath, String mphtopath, String mPhoto, String ask, String give, String business) {
         this.id = id;
         this.cID = cID;
         this.category = category;
@@ -72,14 +72,15 @@ public class MaestrosModel {
         this.twitter = twitter;
         this.linkedin = linkedin;
         this.website = website;
-        this.memberPin = memberPin;
-        this.image = image;
         this.cName = cName;
         this.clogo = clogo;
+        this.logopath = logopath;
+        this.mphtopath = mphtopath;
         this.mPhoto = mPhoto;
         this.ask = ask;
         this.give = give;
         this.business = business;
+
     }
 
     public int getId() {
@@ -226,22 +227,6 @@ public class MaestrosModel {
         this.website = website;
     }
 
-    public String getMemberPin() {
-        return memberPin;
-    }
-
-    public void setMemberPin(String memberPin) {
-        this.memberPin = memberPin;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public String getcName() {
         return cName;
     }
@@ -256,6 +241,22 @@ public class MaestrosModel {
 
     public void setClogo(String clogo) {
         this.clogo = clogo;
+    }
+
+    public String getLogopath() {
+        return logopath;
+    }
+
+    public void setLogopath(String logopath) {
+        this.logopath = logopath;
+    }
+
+    public String getMphtopath() {
+        return mphtopath;
+    }
+
+    public void setMphtopath(String mphtopath) {
+        this.mphtopath = mphtopath;
     }
 
     public String getmPhoto() {
@@ -289,5 +290,4 @@ public class MaestrosModel {
     public void setBusiness(String business) {
         this.business = business;
     }
-
 }

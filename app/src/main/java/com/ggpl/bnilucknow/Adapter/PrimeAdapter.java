@@ -14,15 +14,9 @@ import com.ggpl.bnilucknow.R;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
-
-public class PrimeAdapter extends RecyclerView.Adapter<PrimeAdapter.ViewHolder>{
+public class PrimeAdapter extends RecyclerView.Adapter<PrimeAdapter.ViewHolder> {
     private List<PrimePrime> primePrimeList;
     private Context context;
-
-    private int[] staticImages = {
-
-            R.drawable.profile,//1
-    };
 
     public PrimeAdapter(List<PrimePrime> primePrimeList, Context context) {
         this.primePrimeList = primePrimeList;
@@ -31,29 +25,22 @@ public class PrimeAdapter extends RecyclerView.Adapter<PrimeAdapter.ViewHolder>{
 
     @NonNull
     @Override
-    public PrimeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.regional_team_layout, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PrimeAdapter.ViewHolder holder, int position) {
-        holder.topText.setText(primePrimeList.get(position).getfName());
-        holder.bottomText.setText(primePrimeList.get(position).getCategory());
-        holder.bottomText2.setText(primePrimeList.get(position).getcName());
-        holder.initialname.setText(primePrimeList.get(position).getInitial());
-        holder.lastname.setText(primePrimeList.get(position).getlName());
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        PrimePrime primePrime = primePrimeList.get(position);
+        holder.topText.setText(primePrime.getfName());
+        holder.bottomText.setText(primePrime.getCategory());
+        holder.bottomText2.setText(primePrime.getcName());
+        holder.initialname.setText(primePrime.getInitial());
+        holder.lastname.setText(primePrime.getlName());
 
 
-        int imageIndex = position % staticImages.length;
-
-        Picasso.get()
-                .load(staticImages[imageIndex])
-                .into(holder.image);
-
-     ////load
-
-        String imagePath = primePrimeList.get(position).getmPhoto();
+        String imagePath = primePrime.getMphtopath();
         if (imagePath != null && !imagePath.isEmpty()) {
             Picasso.get().load(imagePath).into(holder.image);
         } else {
@@ -64,36 +51,21 @@ public class PrimeAdapter extends RecyclerView.Adapter<PrimeAdapter.ViewHolder>{
             @Override
             public void onClick(View view) {
                 int clickedPosition = holder.getAdapterPosition();
-
-                Context context = view.getContext();
-
-                String title = primePrimeList.get(clickedPosition).getfName();
-                String text = primePrimeList.get(clickedPosition).getlName();
-                String categoery = primePrimeList.get(clickedPosition).getCategory();
-                String myAsk = primePrimeList.get(clickedPosition).getAsk();
-                String myGive = primePrimeList.get(clickedPosition).getGive();
-                String mobNo = primePrimeList.get(clickedPosition).getNumber();
-                String companyname = primePrimeList.get(clickedPosition).getcName();
-                String business = primePrimeList.get(clickedPosition).getBusiness();
-                int imageResourceId = staticImages[clickedPosition % staticImages.length];
-
+                PrimePrime clickedItem = primePrimeList.get(clickedPosition);
 
                 Intent intent = new Intent(context, ProfileActivity.class);
-
-                intent.putExtra("title", title);
-                intent.putExtra("text", text);
-                intent.putExtra("categoery", categoery);
-                intent.putExtra("myAsk", myAsk);
-                intent.putExtra("myGive", myGive);
-                intent.putExtra("mobNo", mobNo);
-                intent.putExtra("companyname", companyname);
-                intent.putExtra("business", business);
-                intent.putExtra("imageResourceId", imageResourceId);
+                intent.putExtra("title", clickedItem.getfName());
+                intent.putExtra("text", clickedItem.getlName());
+                intent.putExtra("categoery", clickedItem.getCategory());
+                intent.putExtra("myAsk", clickedItem.getAsk());
+                intent.putExtra("myGive", clickedItem.getGive());
+                intent.putExtra("mobNo", clickedItem.getNumber());
+                intent.putExtra("companyname", clickedItem.getcName());
+                intent.putExtra("business", clickedItem.getBusiness());
+                intent.putExtra("imageUrl", clickedItem.getMphtopath()); // Pass image URL to profile activity
                 context.startActivity(intent);
             }
         });
-
-
     }
 
     @Override
@@ -102,8 +74,9 @@ public class PrimeAdapter extends RecyclerView.Adapter<PrimeAdapter.ViewHolder>{
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView topText, bottomText, bottomText2 ,initialname, lastname;
+        TextView topText, bottomText, bottomText2, initialname, lastname;
         ImageView image;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             topText = itemView.findViewById(R.id.topText);

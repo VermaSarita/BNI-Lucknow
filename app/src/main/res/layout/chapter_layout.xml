@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="@string/app_name"
             android:textColor="#121111"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:layout_marginTop="5dp"
             android:textAlignment="center" />
 

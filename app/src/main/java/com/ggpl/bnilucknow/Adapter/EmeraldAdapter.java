@@ -19,10 +19,7 @@ public class EmeraldAdapter extends RecyclerView.Adapter<EmeraldAdapter.ViewHold
     private List<EmeraldModel> emeraldModelList;
     private Context context;
 
-    private int[] staticImages = {
 
-            R.drawable.profile,//1
-    };
 
     public EmeraldAdapter(List<EmeraldModel> emeraldModelList, Context context) {
         this.emeraldModelList = emeraldModelList;
@@ -38,27 +35,23 @@ public class EmeraldAdapter extends RecyclerView.Adapter<EmeraldAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull EmeraldAdapter.ViewHolder holder, int position) {
+        EmeraldModel member = emeraldModelList.get(position);
+
         holder.topText.setText(emeraldModelList.get(position).getfName());
         holder.bottomText.setText(emeraldModelList.get(position).getCategory());
         holder.bottomText2.setText(emeraldModelList.get(position).getcName());
         holder.initialname.setText(emeraldModelList.get(position).getInitial());
         holder.lastname.setText(emeraldModelList.get(position).getlName());
 
-        int imageIndex = position % staticImages.length;
+        String imageUrl = member.getMphtopath();
 
         Picasso.get()
-                .load(staticImages[imageIndex])
+                .load(imageUrl)
+                .placeholder(R.drawable.bnilogo)
+                .error(R.drawable.ic_baseline_newspaper_24)
                 .into(holder.image);
 
         //load
-
-
-        String imagePath = emeraldModelList.get(position).getmPhoto();
-        if (imagePath != null && !imagePath.isEmpty()) {
-            Picasso.get().load(imagePath).into(holder.image);
-        } else {
-            holder.image.setImageResource(R.drawable.profile);
-        }
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -69,30 +62,27 @@ public class EmeraldAdapter extends RecyclerView.Adapter<EmeraldAdapter.ViewHold
                 Context context = view.getContext();
 
                 // Retrieve the data of the clicked item
-                String title = emeraldModelList.get(clickedPosition).getfName();
-                String text = emeraldModelList.get(clickedPosition).getlName();
-                String categoery = emeraldModelList.get(clickedPosition).getCategory();
-                String myAsk = emeraldModelList.get(clickedPosition).getAsk();
-                String myGive = emeraldModelList.get(clickedPosition).getGive();
-                String mobNo = emeraldModelList.get(clickedPosition).getNumber();
-                String companyname = emeraldModelList.get(clickedPosition).getcName();
-                String business = emeraldModelList.get(clickedPosition).getBusiness();
-                int imageResourceId = staticImages[clickedPosition % staticImages.length];
-
-
+                String title = member.getfName();
+                String text = member.getlName();
+                String category = member.getCategory();
+                String myAsk = member.getAsk();
+                String myGive = member.getGive();
+                String mobNo = member.getNumber();
+                String companyname = member.getcName();
+                String business = member.getBusiness();
+                String imageResourceUrl = member.getMphtopath();
 
                 Intent intent = new Intent(context, ProfileActivity.class);
 
                 intent.putExtra("title", title);
                 intent.putExtra("text", text);
-                intent.putExtra("categoery", categoery);
+                intent.putExtra("category", category);
                 intent.putExtra("myAsk", myAsk);
                 intent.putExtra("myGive", myGive);
                 intent.putExtra("mobNo", mobNo);
                 intent.putExtra("companyname", companyname);
                 intent.putExtra("business", business);
-                intent.putExtra("imageResourceId", imageResourceId);
-
+                intent.putExtra("imageResourceUrl", imageResourceUrl);
 
                 context.startActivity(intent);
             }

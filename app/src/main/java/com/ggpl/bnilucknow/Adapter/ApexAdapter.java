@@ -19,11 +19,6 @@ public class ApexAdapter extends RecyclerView.Adapter<ApexAdapter.ViewHolder> {
     private List<ApexMember> apexMemberList;
     private Context context;
 
-    private int[] staticImages = {
-
-            R.drawable.profile,//1
-    };
-
     public ApexAdapter(List<ApexMember> apexMemberList, Context context) {
         this.apexMemberList = apexMemberList;
         this.context = context;
@@ -38,31 +33,24 @@ public class ApexAdapter extends RecyclerView.Adapter<ApexAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ApexAdapter.ViewHolder holder, int position) {
-        holder.topText.setText(apexMemberList.get(position).getfName());
-        holder.bottomText.setText(apexMemberList.get(position).getCategory());
-        holder.bottomText2.setText(apexMemberList.get(position).getcName());
-        holder.initialname.setText(apexMemberList.get(position).getInitial());
-        holder.lastname.setText(apexMemberList.get(position).getlName());
-
-
-        int imageIndex = position % staticImages.length;
-
-        Picasso.get()
-                .load(staticImages[imageIndex])
-                .into(holder.image);
-
-
+        // Bind other data fields
+        ApexMember member = apexMemberList.get(position);
+        holder.topText.setText(member.getfName());
+        holder.bottomText.setText(member.getCategory());
+        holder.bottomText2.setText(member.getcName());
+        holder.initialname.setText(member.getInitial());
+        holder.lastname.setText(member.getlName());
 
         // Load image using Picasso
-        String imagePath = apexMemberList.get(position).getmPhoto();
-        if (imagePath != null && !imagePath.isEmpty()) {
-            Picasso.get().load(imagePath).into(holder.image);
-        } else {
-            // Set a default drawable photo (placeholder image)
-            holder.image.setImageResource(R.drawable.profile);
-        }
+        String imageUrl = member.getMphtopath();
 
+        Picasso.get()
+                .load(imageUrl)
+                .placeholder(R.drawable.bnilogo)
+                .error(R.drawable.ic_baseline_newspaper_24)
+                .into(holder.image);
 
+        // Handle item click
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,36 +59,32 @@ public class ApexAdapter extends RecyclerView.Adapter<ApexAdapter.ViewHolder> {
                 Context context = view.getContext();
 
                 // Retrieve the data of the clicked item
-                String title = apexMemberList.get(clickedPosition).getfName();
-                String text = apexMemberList.get(clickedPosition).getlName();
-                String categoery = apexMemberList.get(clickedPosition).getCategory();
-                String myAsk = apexMemberList.get(clickedPosition).getAsk();
-                String myGive = apexMemberList.get(clickedPosition).getGive();
-                String mobNo = apexMemberList.get(clickedPosition).getNumber();
-                String companyname = apexMemberList.get(clickedPosition).getcName();
-                String business = apexMemberList.get(clickedPosition).getBusiness();
-                int imageResourceId = staticImages[clickedPosition % staticImages.length];
+                String title = member.getfName();
+                String text = member.getlName();
+                String category = member.getCategory();
+                String myAsk = member.getAsk();
+                String myGive = member.getGive();
+                String mobNo = member.getNumber();
+                String companyname = member.getcName();
+                String business = member.getBusiness();
+                String imageResourceUrl = member.getMphtopath();
 
                 Intent intent = new Intent(context, ProfileActivity.class);
 
                 intent.putExtra("title", title);
                 intent.putExtra("text", text);
-                intent.putExtra("categoery", categoery);
+                intent.putExtra("category", category);
                 intent.putExtra("myAsk", myAsk);
                 intent.putExtra("myGive", myGive);
                 intent.putExtra("mobNo", mobNo);
                 intent.putExtra("companyname", companyname);
                 intent.putExtra("business", business);
-                intent.putExtra("imageResourceId", imageResourceId);
-
-
+                intent.putExtra("imageResourceUrl", imageResourceUrl);
 
                 context.startActivity(intent);
             }
         });
-
     }
-
 
     @Override
     public int getItemCount() {
@@ -108,7 +92,7 @@ public class ApexAdapter extends RecyclerView.Adapter<ApexAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView topText, bottomText, bottomText2 , initialname, lastname;
+        TextView topText, bottomText, bottomText2, initialname, lastname;
         ImageView image;
 
         public ViewHolder(@NonNull View itemView) {

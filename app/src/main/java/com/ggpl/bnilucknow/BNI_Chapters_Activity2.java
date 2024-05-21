@@ -25,7 +25,7 @@ public class BNI_Chapters_Activity2 extends AppCompatActivity {
     private ActivityBniChapters2Binding binding;
     private Api api;
     private List<AllChapterModel> allChapterModels = new ArrayList<>();
-    private ChapterAdapter chapterAdapter;
+    private ChapterAdapter chapterAdapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +49,10 @@ public class BNI_Chapters_Activity2 extends AppCompatActivity {
     }
 
     private void initview() {
-        chapterAdapter = new ChapterAdapter(allChapterModels, this);
+        chapterAdapter1 = new ChapterAdapter(allChapterModels, this);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
         binding.recycleViewStagged.setLayoutManager(layoutManager);
-        binding.recycleViewStagged.setAdapter(chapterAdapter);
+        binding.recycleViewStagged.setAdapter(chapterAdapter1);
     }
 
     private void fetchDataFromApi() {
@@ -69,7 +69,7 @@ public class BNI_Chapters_Activity2 extends AppCompatActivity {
                     List<AllChapterModel> responseBody = response.body();
                     if (responseBody != null) {
                         allChapterModels.addAll(responseBody);
-                        chapterAdapter.notifyDataSetChanged();
+                        chapterAdapter1.notifyDataSetChanged();
                     }
                 } else {
                     Log.e("API Error", "Failed to fetch data: " + response.code());

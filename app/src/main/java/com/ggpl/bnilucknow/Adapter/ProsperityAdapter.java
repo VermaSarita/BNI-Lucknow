@@ -19,10 +19,7 @@ public class ProsperityAdapter extends RecyclerView.Adapter<ProsperityAdapter.Vi
     private List<ProsperityModel> prosperityModels;
     private Context context;
 
-    private int[] staticImages = {
 
-            R.drawable.profile,//1
-    };
 
     public ProsperityAdapter(List<ProsperityModel> prosperityModels, Context context) {
         this.prosperityModels = prosperityModels;
@@ -38,6 +35,8 @@ public class ProsperityAdapter extends RecyclerView.Adapter<ProsperityAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ProsperityAdapter.ViewHolder holder, int position) {
+        ProsperityModel member = prosperityModels.get(position);
+
         holder.topText.setText(prosperityModels.get(position).getfName());
         holder.bottomText.setText(prosperityModels.get(position).getCategory());
         holder.bottomText2.setText(prosperityModels.get(position).getcName());
@@ -45,22 +44,17 @@ public class ProsperityAdapter extends RecyclerView.Adapter<ProsperityAdapter.Vi
         holder.lastname.setText(prosperityModels.get(position).getlName());
 
 
-        int imageIndex = position % staticImages.length;
+        String imageUrl = member.getMphtopath();
 
         Picasso.get()
-                .load(staticImages[imageIndex])
+                .load(imageUrl)
+                .placeholder(R.drawable.bnilogo)
+                .error(R.drawable.ic_baseline_newspaper_24)
                 .into(holder.image);
 
 
 
-        // Load image using Picasso
-        String imagePath = prosperityModels.get(position).getmPhoto();
-        if (imagePath != null && !imagePath.isEmpty()) {
-            Picasso.get().load(imagePath).into(holder.image);
-        } else {
-            // Set a default drawable photo (placeholder image)
-            holder.image.setImageResource(R.drawable.profile);
-        }
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,32 +64,28 @@ public class ProsperityAdapter extends RecyclerView.Adapter<ProsperityAdapter.Vi
                 Context context = view.getContext();
 
                 // Retrieve the data of the clicked item
-                String title = prosperityModels.get(clickedPosition).getfName();
-                String text = prosperityModels.get(clickedPosition).getlName();
-                String categoery = prosperityModels.get(clickedPosition).getCategory();
-                String myAsk = prosperityModels.get(clickedPosition).getAsk();
-                String myGive = prosperityModels.get(clickedPosition).getGive();
-                String mobNo = prosperityModels.get(clickedPosition).getNumber();
-                String companyname = prosperityModels.get(clickedPosition).getcName();
-                String business = prosperityModels.get(clickedPosition).getBusiness();
-                int imageResourceId = staticImages[clickedPosition % staticImages.length];
-
-
-                //  int imageResourceId = emeraldModelList[clickedPosition % staticImages.length];
-
+                String title = member.getfName();
+                String text = member.getlName();
+                String category = member.getCategory();
+                String myAsk = member.getAsk();
+                String myGive = member.getGive();
+                String mobNo = member.getNumber();
+                String companyname = member.getcName();
+                String business = member.getBusiness();
+                String imageResourceUrl = member.getMphtopath();
 
                 Intent intent = new Intent(context, ProfileActivity.class);
 
                 intent.putExtra("title", title);
                 intent.putExtra("text", text);
-                intent.putExtra("categoery", categoery);
+                intent.putExtra("category", category);
                 intent.putExtra("myAsk", myAsk);
                 intent.putExtra("myGive", myGive);
                 intent.putExtra("mobNo", mobNo);
                 intent.putExtra("companyname", companyname);
                 intent.putExtra("business", business);
-                intent.putExtra("imageResourceId", imageResourceId);
-                // intent.putExtra("imageResourceId", imageResourceId);
+                intent.putExtra("imageResourceUrl", imageResourceUrl);
+
                 context.startActivity(intent);
             }
         });

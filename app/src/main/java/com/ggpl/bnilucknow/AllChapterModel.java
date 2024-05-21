@@ -5,16 +5,18 @@ import com.google.gson.annotations.SerializedName;
 public class AllChapterModel {
     @SerializedName("id")
     public int id;
-    @SerializedName("img")
-    public String img;
-    @SerializedName("Chapter")
+    @SerializedName("chapter")
     public String chapter;
+    @SerializedName("image")
+    public String image;
+    @SerializedName("imgpath")
+    public String imgpath;
 
-
-    public AllChapterModel(int id, String img, String chapter) {
+    public AllChapterModel(int id, String chapter, String image, String imgpath) {
         this.id = id;
-        this.img = img;
         this.chapter = chapter;
+        this.image = image;
+        this.imgpath = imgpath;
     }
 
     public int getId() {
@@ -25,14 +27,6 @@ public class AllChapterModel {
         this.id = id;
     }
 
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
     public String getChapter() {
         return chapter;
     }
@@ -41,4 +35,19 @@ public class AllChapterModel {
         this.chapter = chapter;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImgpath() {
+        return imgpath;
+    }
+
+    public void setImgpath(String imgpath) {
+        this.imgpath = imgpath;
+    }
 }

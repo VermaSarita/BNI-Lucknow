@@ -17,57 +17,6 @@ public class RegionalTeamAdapter extends RecyclerView.Adapter<RegionalTeamAdapte
     private List<masterMember> masterMemberList;
     private Context context;
 
-    private int[] staticImages = {
-
-            R.drawable.profile,//1
-            R.drawable.profile,//2
-            R.drawable.amit_sarigwala,//3
-            R.drawable.amit_jain,//4
-            R.drawable.anshul_agrwal,//5
-            R.drawable.annu_ashthana,//6
-            R.drawable.anuj_gupta,//7
-            R.drawable.anupam,//8
-            R.drawable.profile,//9
-            R.drawable.arvindra_mishra,//10
-            R.drawable.babita,//11
-            R.drawable.bhaskar_gupta,//12
-            R.drawable.dharmendra,//13
-            R.drawable.profile,//14
-            R.drawable.garima,//15
-            R.drawable.profile,//16
-            R.drawable.profile,//17
-            R.drawable.harsh,//18
-            R.drawable.profile,//19
-            R.drawable.karan_piplanu,//20    done
-            R.drawable.sahanwaj,//21
-            R.drawable.faran,//22
-            R.drawable.mrigang,//23
-            R.drawable.nandini,//24
-            R.drawable.nitin_agrawal,//25
-            R.drawable.prateek_agrawal,//26
-            R.drawable.prem,//27
-            R.drawable.puneesh_agrawal,//28
-            R.drawable.rachana,//29
-            R.drawable.rahul_agrawal,//30
-            R.drawable.ramneek,//31
-            R.drawable.ravi_prakash,//32
-            R.drawable.sachin_kapoor,//33
-            R.drawable.sachin_saxena,//34
-            R.drawable.satveersingh,//35
-            R.drawable.saurabh_sri,//36
-            R.drawable.shadman_sheikh,//37
-            R.drawable.shashank_jain,//38
-            R.drawable.profile,//39
-            R.drawable.shishir_khare,//40
-            R.drawable.sonu_bajpeyi,//41
-            R.drawable.tanay,//42
-            R.drawable.tarang,//43
-            R.drawable.vijay_singh,//44
-            R.drawable.vinayak_nayh,//45
-            R.drawable.vishanu,//1
-            R.drawable.vivek_shri,//1
-
-    };
     public RegionalTeamAdapter(List<masterMember> masterMemberList, Context context) {
         this.masterMemberList = masterMemberList;
         this.context = context;
@@ -82,23 +31,21 @@ public class RegionalTeamAdapter extends RecyclerView.Adapter<RegionalTeamAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        masterMember member = masterMemberList.get(position);
 
-        holder.topText.setText(masterMemberList.get(position).getfName());
-        holder.bottomText.setText(masterMemberList.get(position).getCategory());
-        holder.bottomText2.setText(masterMemberList.get(position).getcName());
-        holder.initialname.setText(masterMemberList.get(position).getInitial());
-        holder.lastname.setText(masterMemberList.get(position).getlName());
+        holder.topText.setText(member.getfName());
+        holder.bottomText.setText(member.getCategory());
+        holder.bottomText2.setText(member.getcName());
+        holder.initialname.setText(member.getInitial());
+        holder.lastname.setText(member.getlName());
 
-
-
-        int imageIndex = position % staticImages.length;
+        String imageUrl = member.getMphtopath();
 
         Picasso.get()
-                .load(staticImages[imageIndex])
+                .load(imageUrl)
+                .placeholder(R.drawable.bnilogo)
+                .error(R.drawable.ic_baseline_newspaper_24)
                 .into(holder.image);
-
-
-
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,39 +55,32 @@ public class RegionalTeamAdapter extends RecyclerView.Adapter<RegionalTeamAdapte
                 Context context = view.getContext();
 
                 // Retrieve the data of the clicked item
-                String title = masterMemberList.get(clickedPosition).getfName();
-                String text = masterMemberList.get(clickedPosition).getlName();
-                String categoery = masterMemberList.get(clickedPosition).getCategory();
-                String myAsk = masterMemberList.get(clickedPosition).getAsk();
-                String myGive = masterMemberList.get(clickedPosition).getGive();
-                String mobNo = masterMemberList.get(clickedPosition).getNumber();
-                String companyname = masterMemberList.get(clickedPosition).getcName();
-                String business = masterMemberList.get(clickedPosition).getBusiness();
-                int imageResourceId = staticImages[clickedPosition % staticImages.length];
-
+                String title = member.getfName();
+                String text = member.getlName();
+                String category = member.getCategory();
+                String myAsk = member.getAsk();
+                String myGive = member.getGive();
+                String mobNo = member.getNumber();
+                String companyname = member.getcName();
+                String business = member.getBusiness();
+                String imageResourceUrl = member.getMphtopath();
 
                 Intent intent = new Intent(context, ProfileActivity.class);
 
                 intent.putExtra("title", title);
                 intent.putExtra("text", text);
-                intent.putExtra("categoery", categoery);
+                intent.putExtra("category", category);
                 intent.putExtra("myAsk", myAsk);
                 intent.putExtra("myGive", myGive);
                 intent.putExtra("mobNo", mobNo);
                 intent.putExtra("companyname", companyname);
                 intent.putExtra("business", business);
-                intent.putExtra("imageResourceId", imageResourceId);
-
+                intent.putExtra("imageResourceUrl", imageResourceUrl);
 
                 context.startActivity(intent);
             }
         });
-
-
-
-
     }
-
 
     @Override
     public int getItemCount() {

@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.ggpl.bnilucknow.Model.MasterModel.masterMember;
-import com.ggpl.bnilucknow.RegionalTeamAdapter;
 import com.ggpl.bnilucknow.Retrofit.Api;
 import com.ggpl.bnilucknow.Retrofit.Retrofit_Instance;
 import com.ggpl.bnilucknow.databinding.ActivityChapterMember2Binding;

@@ -10,12 +10,12 @@ import com.ggpl.bnilucknow.Model.MasterModel.MavericksModel;
 import com.ggpl.bnilucknow.Model.MasterModel.PrimePrime;
 import com.ggpl.bnilucknow.Model.MasterModel.ProsperityModel;
 import com.ggpl.bnilucknow.Model.MasterModel.masterMember;
-
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+
 
 
 public interface Api {
@@ -26,10 +26,11 @@ public interface Api {
     @POST("api/Login/UserLogin")
     Call<List<categoeryModel>> getCategoery();
 
+
     @POST("api/Login/UserList")
     Call<ResponseLogin> login(@Body RequestLogin requestLogin);
 
-    @GET("api/Values")
+    @GET("api/MAster")
     Call<List<masterMember>> getMasters();
 
     @GET("api/Apex")

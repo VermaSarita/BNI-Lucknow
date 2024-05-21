@@ -12,18 +12,12 @@ import com.ggpl.bnilucknow.Model.MasterModel.MavericksModel;
 import com.ggpl.bnilucknow.ProfileActivity;
 import com.ggpl.bnilucknow.R;
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
 
 public class MavericksAdapter extends RecyclerView.Adapter<MavericksAdapter.ViewHolder> {
     private List<MavericksModel> mavericksModels;
     private Context context;
-
-    private int[] staticImages = {
-
-            R.drawable.profile,//1
-    };
 
 
     public MavericksAdapter(List<MavericksModel> mavericksModels, Context context) {
@@ -40,18 +34,20 @@ public class MavericksAdapter extends RecyclerView.Adapter<MavericksAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull MavericksAdapter.ViewHolder holder, int position) {
+        MavericksModel member = mavericksModels.get(position);
+
         holder.topText.setText(mavericksModels.get(position).getfName());
         holder.bottomText.setText(mavericksModels.get(position).getCategory());
         holder.bottomText2.setText(mavericksModels.get(position).getcName());
         holder.initialname.setText(mavericksModels.get(position).getInitial());
         holder.lastname.setText(mavericksModels.get(position).getlName());
 
-
-
-        int imageIndex = position % staticImages.length;
+        String imageUrl = member.getMphtopath();
 
         Picasso.get()
-                .load(staticImages[imageIndex])
+                .load(imageUrl)
+                .placeholder(R.drawable.bnilogo)
+                .error(R.drawable.ic_baseline_newspaper_24)
                 .into(holder.image);
 
 
@@ -63,29 +59,28 @@ public class MavericksAdapter extends RecyclerView.Adapter<MavericksAdapter.View
                 Context context = view.getContext();
 
                 // Retrieve the data of the clicked item
-                String title = mavericksModels.get(clickedPosition).getfName();
-                String text = mavericksModels.get(clickedPosition).getlName();
-                String categoery = mavericksModels.get(clickedPosition).getCategory();
-                String myAsk = mavericksModels.get(clickedPosition).getAsk();
-                String myGive = mavericksModels.get(clickedPosition).getGive();
-                String mobNo = mavericksModels.get(clickedPosition).getNumber();
-                String companyname = mavericksModels.get(clickedPosition).getcName();
-                String business = mavericksModels.get(clickedPosition).getBusiness();
-                int imageResourceId = staticImages[clickedPosition % staticImages.length];
-
+                String title = member.getfName();
+                String text = member.getlName();
+                String category = member.getCategory();
+                String myAsk = member.getAsk();
+                String myGive = member.getGive();
+                String mobNo = member.getNumber();
+                String companyname = member.getcName();
+                String business = member.getBusiness();
+                String imageResourceUrl = member.getMphtopath();
 
                 Intent intent = new Intent(context, ProfileActivity.class);
 
                 intent.putExtra("title", title);
                 intent.putExtra("text", text);
-                intent.putExtra("categoery", categoery);
+                intent.putExtra("category", category);
                 intent.putExtra("myAsk", myAsk);
                 intent.putExtra("myGive", myGive);
                 intent.putExtra("mobNo", mobNo);
                 intent.putExtra("companyname", companyname);
                 intent.putExtra("business", business);
-                intent.putExtra("imageResourceId", imageResourceId);
-                // intent.putExtra("imageResourceId", imageResourceId);
+                intent.putExtra("imageResourceUrl", imageResourceUrl);
+
                 context.startActivity(intent);
             }
         });
